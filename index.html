@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポートフォリオ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #e6f3ff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+            height: 60px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .logo a {
+            text-decoration: none;
+            color: #333;
+        }
+        .nav-menu {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+            background-color: #f8f8f8;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .nav-menu a {
+            display: block;
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        main {
+            flex: 1;
+            padding: 80px 20px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        footer {
+            background-color: #444;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .hamburger {
+            display: block;
+            width: 30px;
+            height: 22px;
+            position: relative;
+            cursor: pointer;
+            z-index: 1100;
+        }
+        .hamburger span {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #333;
+            transition: all 0.3s;
+        }
+        .hamburger span:nth-child(1) {
+            top: 0;
+        }
+        .hamburger span:nth-child(2) {
+            top: 10px;
+        }
+        .hamburger span:nth-child(3) {
+            top: 20px;
+        }
+        .hamburger.active span:nth-child(1) {
+            top: 10px;
+            transform: rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            top: 10px;
+            transform: rotate(-45deg);
+        }
+        .header-links {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 10px 0;
+        }
+        .header-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .section {
+            margin-bottom: 40px;
+            padding-top: 70px;
+            margin-top: -70px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="./">ポートフォリオ</a>
+        </div>
+        <div class="header-links">
+            <a href="#news">ニュース</a>
+            <a href="#events">イベントカレンダー</a>
+            <a href="#updates">サイト更新情報</a>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <nav class="nav-menu">
+        <a href="company.html">企業情報</a>
+        <a href="ir.html">投資家情報</a>
+        <a href="recruit.html">採用情報</a>
+    </nav>
+
+    <main>
+        <h1>ポートフォリオページへようこそ</h1>
+        <p>作成者：岩本美結</p>
+        <p>現在、HTML,CSS,JavaScriptをメインに勉強しています。前記の3つに比べればさいている学習時間は短いのですが、SQL,PHPも学習しているところです。</p>
+		<p>このサイトでは私が学習したこと実際に実践する場として、また私の学習進捗の見極めに使用する為に作成しました。サイト構成は企業HPを意識して作成したものです。</p>
+		<P>学習期間は6/27日時点で約1ヶ月です。</p>
+        
+        <section id="news" class="section">
+            <h2>ニュース</h2>
+            <div class="news-item">
+                <h3>2024年6月新製品発表</h3>
+                <p>AI搭載の新しいクラウドサービスを発表しました。詳細は<a href="#">こちら</a>をご覧ください。</p>
+            </div>
+            <div class="news-item">
+                <h3>2024年5月四半期決算発表</h3>
+                <p>2024年第1四半期の決算を発表しました。詳細は<a href="#">こちら</a>をご覧ください。</p>
+            </div>
+        </section>
+
+        <section id="events" class="section">
+            <h2>イベントカレンダー</h2>
+            <div class="event-item">
+                <h3>2024年テクノロジーカンファレンス</h3>
+                <p>当社主催のテクノロジーカンファレンスを開催します。参加申し込みは<a href="#">こちら</a>から。</p>
+            </div>
+            <div class="event-item">
+                <h3>2024年夏季インターンシップ</h3>
+                <p>大学生向けの夏季インターンシップを実施します。詳細は<a href="#">こちら</a>をご覧ください。</p>
+            </div>
+        </section>
+
+        <section id="updates" class="section">
+            <h2>サイト更新情報</h2>
+            <div class="update-item">
+                <h3>2024年6月20日: 採用情報ページ更新</h3>
+                <p>2025年度新卒採用情報を掲載しました。</p>
+            </div>
+            <div class="update-item">
+                <h3>2024年6月10日: IR資料追加</h3>
+                <p>2024年度第1四半期のIR資料を追加しました。</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ポートフォリオ</p>
+        <p><a href="faq.html">FAQ・お問い合わせ</a></p>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            navMenu.style.display = navMenu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+
+        document.querySelectorAll('.nav-menu a').forEach(function(navLink) {
+            navLink.addEventListener('click', function() {
+                navMenu.style.display = 'none';
+                hamburger.classList.remove('active');
+            });
+        });
+
+        window.addEventListener('load', function() {
+            navMenu.style.display = 'none';
+            hamburger.classList.remove('active');
+        });
+
+        window.addEventListener('resize', function() {
+            navMenu.style.display = 'none';
+            hamburger.classList.remove('active');
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                const headerHeight = document.querySelector('header').offsetHeight;
+
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            });
+        });
+    </script>
+</body>
+</html>
