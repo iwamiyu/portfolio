@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>採用情報 - ポートフォリオ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #e6f3ff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+            height: 60px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .logo a {
+            text-decoration: none;
+            color: #333;
+        }
+        .nav-menu {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+            background-color: #f8f8f8;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .nav-menu a {
+            display: block;
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        main {
+            flex: 1;
+            padding: 80px 20px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        footer {
+            background-color: #444;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .hamburger {
+            display: block;
+            width: 30px;
+            height: 22px;
+            position: relative;
+            cursor: pointer;
+            z-index: 1100;
+        }
+        .hamburger span {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #333;
+            transition: all 0.3s;
+        }
+        .hamburger span:nth-child(1) {
+            top: 0;
+        }
+        .hamburger span:nth-child(2) {
+            top: 10px;
+        }
+        .hamburger span:nth-child(3) {
+            top: 20px;
+        }
+        .hamburger.active span:nth-child(1) {
+            top: 10px;
+            transform: rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            top: 10px;
+            transform: rotate(-45deg);
+        }
+
+		/* フォーム用のスタイル */
+		form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-top: 20px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        textarea {
+            height: 150px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">ポートフォリオ</a>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <nav class="nav-menu">
+        <a href="company.html">企業情報</a>
+        <a href="ir.html">投資家情報</a>
+        <a href="recruit.html">採用情報</a>
+    </nav>
+
+    <main>
+        <h1>採用情報</h1>
+		<p>25年度卒新卒採用。以下のフォームからご応募ください。</p>
+
+        <form action="#" method="post" enctype="multipart/form-data">
+            <label for="name">氏名：</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">メールアドレス：</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="tel">電話番号：</label>
+            <input type="tel" id="tel" name="tel">
+
+            <label for="position">希望職種：</label>
+            <select id="position" name="position" required>
+                <option value="">選択してください</option>
+                <option value="engineer">エンジニア</option>
+                <option value="designer">デザイナー</option>
+                <option value="sales">営業</option>
+                <option value="marketing">マーケティング</option>
+                <option value="other">その他</option>
+            </select>
+
+            <label for="experience">経験年数：</label>
+            <input type="text" id="experience" name="experience">
+
+            <label for="motivation">志望動機：</label>
+            <textarea id="motivation" name="motivation" required></textarea>
+
+            <label for="resume">履歴書：</label>
+            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+
+            <input type="submit" value="応募する">
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ポートフォリオ.</p>
+        <p><a href="faq.html">FAQ・お問い合わせ</a></p>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            navMenu.style.display = navMenu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+
+        document.querySelectorAll('.nav-menu a').forEach(function(navLink) {
+            navLink.addEventListener('click', function() {
+                navMenu.style.display = 'none';
+                hamburger.classList.remove('active');
+            });
+        });
+
+        window.addEventListener('load', function() {
+            navMenu.style.display = 'none';
+            hamburger.classList.remove('active');
+        });
+
+        window.addEventListener('resize', function() {
+            navMenu.style.display = 'none';
+            hamburger.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
